@@ -1,6 +1,6 @@
 #NAME = dwmstatus
-NAME = new
-VERSION = 1.2
+NAME = battinfo 
+VERSION = 0.1
 
 #
 # Customize below to fit your system
