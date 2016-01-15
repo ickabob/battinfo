@@ -1,6 +1,5 @@
-#NAME = dwmstatus
 NAME = battinfo 
-VERSION = 0.1
+VERSION = 0.1.1
 
 #
 # Customize below to fit your system
@@ -10,24 +9,20 @@ VERSION = 0.1
 PREFIX = /usr/local
 MANPREFIX = ${PREFIX}/share/man
 
-X11INC = /usr/local/include/
-X11LIB = /usr/local/lib/
-
 # includes and libs
-INCS = -I. -I/usr/include -I${X11INC}
-LIBS = -L/usr/lib -lc -L${X11LIB} -lX11
+INCS = -I. -I/usr/include 
+LIBS = -L/usr/lib -lc 
 
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\"
-CFLAGS = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
-#CFLAGS = -std=c99 -pedantic -Wall -Os ${INCS} ${CPPFLAGS}
-LDFLAGS = -g ${LIBS}
-#LDFLAGS = -s ${LIBS}
-
-# Solaris
-#CFLAGS = -fast ${INCS} -DVERSION=\"${VERSION}\"
-#LDFLAGS = ${LIBS}
+#CFLAGS = -g -std=c11 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
+CFLAGS = -std=c11 -pedantic -Wall -Os ${INCS} ${CPPFLAGS}
+#LDFLAGS = -g ${LIBS}
+LDFLAGS = -s ${LIBS}
 
 # compiler and linker
 CC = cc
+
+SRC = batstat.c smprintf.c  
+
 

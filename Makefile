@@ -2,7 +2,7 @@
 
 include config.mk
 
-SRC = ${NAME}.c 
+SRC += ${NAME}.c 
 TEST_SRC = ${./tests/test_+.c}
 OBJ = ${SRC:.c=.o}
 
@@ -21,10 +21,18 @@ options:
 ${OBJ}: config.mk
 
 ${NAME}: ${OBJ}
+	@echo ${OBJ}
 	@echo CC -o $@ ${OBJ} ${LDFLAGS}
 	@${CC} -o $@ ${OBJ} ${LDFLAGS}
 
-tests: sysctl_battery.c
+depend:
+	@CC -E -MM *.c > ./.depend
+	
+batstat_mock.o:	batstat.h batstat_mock.c
+	@echo CC $< ${CFLAGS}
+	@${CC} -c ${CFLAGS} $<
+
+tests: ${TEST_SRC}
 	@echo "Making tests in ./tests ..."
 	@echo TEST_SRC: ${TEST_SRC}	
 
