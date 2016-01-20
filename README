@@ -1,0 +1,15 @@
+This repository contains C code exploring a new BSD system.
+I make no garuntee about that this code will be of use to anyone other than
+myself.  
+
+The goal of this project is to write a C module to query machine battery
+state.  To do this I use FreeBSD's sysctl system call. After writing this 
+module I discovered an alternate approach using ioctl vs sysctl.  
+
+For more details about this alternate approach look @ FreeBSD's source for the
+`apciconf` utility. The source can be found in
+/src/usr.sbin/acpi/acpi/acpiconf/acpiconf.c
+
+NOTE: The makefile as of yet is still very much connected to FreeBSD's
+templates and likely wont be nice to work with until I break out a
+project-specific makefile.
