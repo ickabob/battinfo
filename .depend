@@ -1,5 +1,3 @@
 batstat.o: batstat.c batstat.h
-batstat_mock.o: batstat_mock.c batstat.h
 battinfo.o: battinfo.c batstat.h
 smprintf.o: smprintf.c
-tmp.o: tmp.c
